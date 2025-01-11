@@ -33,17 +33,6 @@ public class LinearSearch {
         System.out.println("]");
     }
     
-    //search value
-    public List<Integer> searchValues(int x){
-        List<Integer> index = new ArrayList<>();
-        for(int i = 0; i < array.length; i++){
-        if(array[i] == x){
-            index.add(i);
-            }
-        }
-        return index;
-    }
-    
     public int searchValue(int x){
         for(int i = 0; i < array.length; i++){
             if(array[i] == x){
