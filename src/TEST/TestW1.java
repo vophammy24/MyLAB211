@@ -1,4 +1,4 @@
-package mylab211;
+package TEST;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ import mylab211.WEEK1.CountWC;
 import mylab211.WEEK1.EquationSolve;
 import mylab211.WEEK1.LinearSearch;
 
-public class Test {
+public class TestW1 {
 
 
     public static void main(String[] args) {
