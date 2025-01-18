@@ -31,7 +31,6 @@ public class EquationSolve {
                     break;
                 case 3:
                     System.out.println("Exit.");
-                    scanner.close();
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
