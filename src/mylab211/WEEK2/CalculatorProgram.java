@@ -154,7 +154,7 @@ public class CalculatorProgram {
                 try {
                     return Double.parseDouble(scanner.nextLine());
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter a numeric value.");
+                       System.out.println("Invalid input. Please enter a numeric value.");
                 }
             }
         }

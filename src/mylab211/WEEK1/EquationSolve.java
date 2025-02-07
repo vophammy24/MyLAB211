@@ -97,30 +97,30 @@ public class EquationSolve {
         }
 
         public static void displayNumberProperties(float... numbers) {
-        System.out.print("Number is Odd: ");
-        for (float number : numbers) {
-            if (number % 2 != 0) {
-                System.out.print(number + " ");
+            System.out.print("Number is Odd: ");
+            for (float number : numbers) {
+                if (number % 2 != 0) {
+                    System.out.print(number + " ");
+                }
             }
-        }
-        System.out.println();
+            System.out.println();
 
-        System.out.print("Number is Even: ");
-        for (float number : numbers) {
-            if (number % 2 == 0) {
-                System.out.print(number + " ");
+            System.out.print("Number is Even: ");
+            for (float number : numbers) {
+                if (number % 2 == 0) {
+                    System.out.print(number + " ");
+                }
             }
-        }
-        System.out.println();
+            System.out.println();
 
-        System.out.print("Number is Perfect Square: ");
-        for (float number : numbers) {
-            if (isPerfectSquare(number)) {
-                System.out.print(number + " ");
+            System.out.print("Number is Perfect Square: ");
+            for (float number : numbers) {
+                if (isPerfectSquare(number)) {
+                    System.out.print(number + " ");
+                }
             }
+            System.out.println();
         }
-        System.out.println();
-    }
 
         public static boolean isPerfectSquare(float number) {
             if (number < 0) return false;
