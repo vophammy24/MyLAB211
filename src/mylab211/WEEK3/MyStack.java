@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mylab211.WEEK3;
 
 public class MyStack {
@@ -48,10 +44,11 @@ public class MyStack {
     public int get(int position){
         if (position < 0 || position > lastIndex ){
             System.out.println("Invalid position!");
+            return -1;
         } else {
             System.out.println("Get " + stackValues[position] + " at: " + position);
-        }
             return stackValues[position];
+        }
     }
 
     public void display(){
