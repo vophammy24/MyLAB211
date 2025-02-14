@@ -11,6 +11,7 @@ public class Utilizer {
                 int input = Integer.parseInt(sc.nextLine());
                 if (input < 2){ 
                     throw new IllegalArgumentException("Enter a number more than 2.");
+                    //continue;
                 }
                 return input;
             } catch (Exception e){
@@ -27,6 +28,7 @@ public class Utilizer {
                 int input = Integer.parseInt(sc.nextLine());
                 if (input < 2){
                     throw new IllegalArgumentException("Enter a number more than 2.");
+                    //continue;
                 }
                 return input;
             } catch (Exception e){
@@ -43,6 +45,7 @@ public class Utilizer {
                 int searchValue = Integer.parseInt(sc.nextLine());
                 if (searchValue <= 0){
                     throw new IllegalArgumentException("Enter a positive number.");
+                    //continue;
                 }
                 return searchValue;
             } catch (Exception e){

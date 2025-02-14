@@ -31,7 +31,7 @@ public class QuickSort {
     public int[] getArray(){
         return array;// getter để lấy array ra ngoài class
     }
-    
+        
     public void quickSort(int[] array) {
         quickSort(array, 0, array.length - 1);
     }
