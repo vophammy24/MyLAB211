@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package TEST;
 
 import Utilizer.Utilizer;
 import java.util.Scanner;
+import mylab211.WEEK4.InformationManagement;
 import mylab211.WEEK4.StudentManagement;
 
-/**
- *
- * @author MY
- */
 public class TestW4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -31,7 +24,7 @@ public class TestW4 {
                         sm.display();
                         break;
                 case 2:   
-                        
+                        InformationManagement.Menu.menu(sc);                        
                         break;
                 case 3:
                         System.out.println("Exiting the program.");

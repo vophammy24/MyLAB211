@@ -58,7 +58,4 @@ public class Student {
         return "Student [" + "ID = " + id + " | Name = " + name + " | Semeter = "
                 + semester + " | Course Name = " + courseName + ']';
     }
-    
-    
-    
 }
