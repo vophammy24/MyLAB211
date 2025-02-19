@@ -32,42 +32,12 @@ class Person{
                 && yob < Calendar.getInstance().get(Calendar.YEAR);
     }
     
-    void input(Scanner sc){
-        
-        while(!id.matches("\\d{6}")){
-            System.out.print("ID: ");
-            id = sc.nextLine();
-            if (!id.matches("\\d{6}")) 
-                System.out.println("Data input is invalid");
-        }
-        while(!name.matches("[a-zA-Z ]+")){
-            System.out.print("Fullname: ");
-            name = sc.nextLine();
-            if (!name.matches("[a-zA-Z ]+")) 
-                System.out.println("Data input is invalid");
-        }
-        while(!phone.matches("\\d{12}")){
-            System.out.print("Phone number: ");
-            phone = sc.nextLine();
-            if (!phone.matches("\\d{12}")) 
-                System.out.println("Data input is invalid");
-        }
-        while(yob <=0 || yob >= Calendar.getInstance().get(Calendar.YEAR)){
-            System.out.print("Year of Birth: ");
-            if (sc.hasNextInt()) {
-                yob = sc.nextInt();
-                sc.nextLine();               
-            } else {
-                System.out.println("Data input is invalid");
-                sc.nextLine(); 
-            }
-        }
-        while(major.length() > 30 || major.isEmpty()){
-            System.out.print("Major: ");
-            major = sc.nextLine();
-            if (major.length() > 30) 
-                System.out.println("Data input is invalid");
-        }            
+    void InputAll(String ID, String fname, String p, int yearOB, String m){
+        id = ID;
+        name = fname;
+        phone = p;
+        yob = yearOB;
+        major = m;
     }
 
     @Override
@@ -78,57 +48,31 @@ class Person{
 
 class Teacher extends Person{
     int yearInP;
-    String contactType;
+    String contractType;
     double salary;
 
     public Teacher() {
         super();
-        this.yearInP = 0;
-        this.contactType = "";
-        this.salary = -1;
+        yearInP = 0;
+        contractType = "";
+        salary = -1;
     }
 
     public int getYearInP() {
         return yearInP;
     }
 
-    void inputAll(Scanner sc) {
-        super.input(sc);
+    void inputAll(int yInP, String cType, double slry) {
+        super.InputAll(id, name, phone, yob, major);
         
-        while (yearInP <= 0 || yearInP > (Calendar.getInstance().get(Calendar.YEAR) - yob)){
-            System.out.print("Year of Profession: ");
-            if (sc.hasNextInt()){
-                yearInP = sc.nextInt();
-                sc.nextLine();                
-            } else {
-                System.out.println("Data input is invalid");
-                sc.nextLine();
-            }
-
-        }
-        while (true){
-            System.out.print("Contact Type is 'Long' or 'Short': ");
-            contactType = sc.nextLine();
-            if (contactType.equalsIgnoreCase("Long") || contactType.equalsIgnoreCase("Short"))
-                break;
-            System.out.println("Data input is invalid");
-        }
-        
-        while (salary <= 0 ){
-            System.out.print("Salary: ");
-            if (sc.hasNextDouble()) {
-                salary = sc.nextDouble();
-                sc.nextLine();    
-            } else {
-                System.out.println("Data input is invalid");
-                sc.nextLine();
-            } 
-        }   
+        yearInP = yInP;
+        contractType = cType;
+        salary = slry;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " - " + yearInP + " - " + contactType + " - " + salary;
+        return super.toString() + " - " + yearInP + " - " + contractType + " - " + salary;
     }
 }
 
@@ -138,36 +82,19 @@ class Student extends Person{
 
     public Student() {
         super();
-        this.yearOA = 0;
-        this.score = 0;
+        yearOA = 0;
+        score = 0;
     }
 
     public int getYearOA() {
         return yearOA;
     }
     
-    void inputAll(Scanner sc){
-        super.input(sc);
-        while (yearOA < yob || yearOA > Calendar.getInstance().get(Calendar.YEAR)){
-            System.out.print("Year of Admission: ");
-            if (sc.hasNextInt()) {
-                yearOA = sc.nextInt();
-                sc.nextLine();               
-            } else {
-                System.out.println("Data input is invalid");
-                sc.nextLine();
-            }
-        }
-        while (score <= 0 || score >= 100 ){
-            System.out.print("Entrance English Score: ");
-            if (sc.hasNextDouble()) {
-                score = sc.nextDouble();
-                sc.nextLine();
-            } else {
-                System.out.println("Data input is invalid");
-                sc.nextLine();
-            }
-        }
+    void inputAll(int yOA, double s){
+        super.InputAll(id, name, phone, yob, major);
+
+        yearOA = yOA;
+        score = s;
     }  
 
     @Override
@@ -187,9 +114,11 @@ public class InformationManagement {
     boolean checkPerson(Person ps){
         for (Person person : personList){
             if(person.getId().equals(ps.getId())){
+                System.out.println("Add Person Fail");
                 return false;
             }
-        } return true;
+        } 
+        return true;
     }
     
     boolean addTeacher(Teacher tc){
@@ -197,7 +126,8 @@ public class InformationManagement {
             teacherList.add(tc);
             personList.add(tc);
             return true;
-        } 
+        }
+        System.out.println("Add Teacher Fail");
         return false;
     }
     
@@ -310,101 +240,6 @@ public class InformationManagement {
             }
             else {
                 System.out.println("Result: not found");
-            }
-        }
-    }
-    
-    public static class Menu{
-        public static void menu(Scanner sc){
-        
-            InformationManagement im = new InformationManagement();
-            
-            while(true){
-                System.out.println("*** Information Management ***");
-                System.out.println("1. Teacher");
-                System.out.println("2. Student");
-                System.out.println("3. Person");
-                System.out.println("4. Exit");
-                System.out.print("You choose: ");
-
-                int choice = sc.nextInt();
-                sc.nextLine();
-
-                switch (choice){
-                    case 1:
-                        while (true){
-                            System.out.println("\n*** Teacher Management ***");
-                            System.out.println("1. Input");
-                            System.out.println("2. Print");
-                            System.out.println("3. Exit");
-                            System.out.print("You choose: ");
-                            int teacherChoice = sc.nextInt();
-                            sc.nextLine();
-
-                            if (teacherChoice == 1){
-                                Teacher tc = new Teacher();
-                                tc.inputAll(sc);
-                                if (im.addTeacher(tc));
-                            }
-                            else if (teacherChoice == 2) {
-                                im.sortTeacher();
-                                im.showTeacher();                    
-                                } else if (teacherChoice == 3) break;
-                                else System.out.println("Invalid choice. Try again!");
-                        }
-                        break;
-
-                    case 2:
-                        while (true){
-                            System.out.println("\n*** Student Management ***");
-                            System.out.println("1. Input");
-                            System.out.println("2. Print");
-                            System.out.println("3. Exit");
-                            System.out.print("You choose: ");
-                            int studentChoice = sc.nextInt();
-                            sc.nextLine();
-
-                            if (studentChoice == 1){
-                                Student st = new Student();
-                                st.inputAll(sc);
-                                if (im.addStudent(st));
-                            }
-                            else if (studentChoice == 2) {
-                                im.sortStudent();
-                                im.showStudent();
-                                } 
-                                else if (studentChoice == 3) break;
-                                else System.out.println("Invalid choice. Try again!");
-                        }
-                        break;
-                        
-                    case 3:
-                        while (true){
-                            System.out.println("\n*** Person Management ***");
-                            System.out.println("1. Search");
-                            System.out.println("2. Print all");
-                            System.out.println("3. Exit");
-                            System.out.print("You choose: ");
-                            int studentChoice = sc.nextInt();
-                            sc.nextLine();
-
-                            if (studentChoice == 1){
-                                im.searchPerson(sc);
-                            }
-                            else if (studentChoice == 2) {
-                                im.showPerson();
-                                } 
-                                else if (studentChoice == 3) break;
-                                else System.out.println("Invalid choice. Try again!");
-                        }
-                        break;
-                    case 4: 
-                        System.out.println("BYE AND SEE YOU NEXT TIME ");
-                        return;
-                        
-                    default:
-                            System.out.println("Invalid option");
-                }
             }
         }
     }

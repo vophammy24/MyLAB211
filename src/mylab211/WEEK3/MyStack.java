@@ -28,6 +28,7 @@ public class MyStack {
     public void push(int x){
         if (isFull()){
             System.out.println("Stack is full. Cannot push " + x);
+            return;
         }
         stackValues[++lastIndex] = x;
         System.out.println("Pushed: " + x);
@@ -36,6 +37,7 @@ public class MyStack {
     public int pop(){
         if (isEmpty()){
             System.out.println("Stack is empty!");
+            return -1;
         } int temp = stackValues[lastIndex--];
             System.out.println("Popped: " + temp);
             return temp;

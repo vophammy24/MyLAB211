@@ -2,7 +2,7 @@ package TEST;
 
 import Utilizer.Utilizer;
 import java.util.Scanner;
-import mylab211.WEEK4.InformationManagement;
+import mylab211.WEEK4.IMMenu;
 import mylab211.WEEK4.StudentManagement;
 
 public class TestW4 {
@@ -24,7 +24,7 @@ public class TestW4 {
                         sm.display();
                         break;
                 case 2:   
-                        InformationManagement.Menu.menu(sc);                        
+                        IMMenu.menu(sc);
                         break;
                 case 3:
                         System.out.println("Exiting the program.");
