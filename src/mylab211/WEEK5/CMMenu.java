@@ -57,9 +57,16 @@ public class CMMenu {
             System.out.print("Online (O) or Offline (F): ");
             String action = sc.nextLine();
             if (action.equalsIgnoreCase("O")){
-                System.out.print("Course ID: ");
-                String id = sc.nextLine();
-                
+                String id;
+                while (true){
+                    System.out.print("Course ID: ");
+                    id = sc.nextLine();   
+                    if (cm.checkOnlineCourse(id)){
+//                        System.out.println("Data input is invalid, ID must be unique");
+                        break;
+                    }  System.out.println("Data input is invalid, ID must be unique");
+                }
+
                 System.out.print("Course Name: ");
                 String name = sc.nextLine();
                 
@@ -85,9 +92,16 @@ public class CMMenu {
                 break;
                 
             } else if (action.equalsIgnoreCase("F")){
-                System.out.print("Course ID: ");
-                String id = sc.nextLine();
-                
+                String id;
+                while (true){
+                    System.out.print("Course ID: ");
+                    id = sc.nextLine();   
+                    if (cm.checkOfflineCourse(id)){
+//                        System.out.println("Data input is invalid, ID must be unique");
+                        break;
+                    }  System.out.println("Data input is invalid, ID must be unique");
+                }
+
                 System.out.print("Course Name: ");
                 String name = sc.nextLine();
                 
@@ -124,6 +138,7 @@ public class CMMenu {
     
     public static void updateCourse(Scanner sc, CourseManagement cm){
         while (true) {
+
             System.out.print("Course ID: ");
             String id = sc.nextLine();
 
@@ -133,7 +148,7 @@ public class CMMenu {
                 String action = sc.nextLine().trim();
                 while (true) {
                     if (action.equalsIgnoreCase("Y")) {
-                        updateCourse(sc, cm);
+                        break;
                 } else if (action.equalsIgnoreCase("N")) return;
                     else 
                     System.out.println("Invalid input! Please enter Y (Yes) or N (No): ");
@@ -170,7 +185,6 @@ public class CMMenu {
                     if (newNote.isEmpty()) newNote = null;
 
                     cm.updateOnlineCourse(id, newName, newCredit, newPlatform, newInstructors, newNote);
-                    return;
 
                 } else if (course instanceof OfflineCourse) {
 
@@ -187,7 +201,6 @@ public class CMMenu {
                     if (newCampus.isEmpty()) newCampus = null;
 
                     cm.updateOfflineCourse(id, newName, newCredit, newBegin, newEnd, newCampus);
-                    return;
                 }
             }
             System.out.println("Updated successfully.");
@@ -209,7 +222,7 @@ public class CMMenu {
                 String action = sc.nextLine().trim();
                 while (true) {
                     if (action.equalsIgnoreCase("Y")) {
-                        deleteCourse(sc, cm);
+                        break;
                 } else if (action.equalsIgnoreCase("N")) return;
                     else 
                     System.out.println("Invalid input! Please enter Y (Yes) or N (No): ");

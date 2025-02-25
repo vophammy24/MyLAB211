@@ -22,6 +22,18 @@ public class Course {
     public int getCredits() {
         return credits;
     }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
     
     public void inputAll(String cID, String cName, int cr){
         if (cID.isEmpty() || cName.isEmpty() || cr <= 0) 

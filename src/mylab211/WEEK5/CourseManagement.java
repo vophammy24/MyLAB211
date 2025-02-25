@@ -23,7 +23,6 @@ public class CourseManagement {
     
     public boolean checkOnlineCourse(String ID){
         if (isDuplicateID(ID)) {
-            System.out.println("Data input is invalid, ID must be unique");
             return false;
         }
         return true;
@@ -37,15 +36,11 @@ public class CourseManagement {
         return false;
     }
     public boolean deleteOnlineCourse(String IDcourse){
-        OnlineCourse courseRemove = null;
         for (OnlineCourse onlineCourse: onlineCourseList){
             if (onlineCourse.getCourseID().equals(IDcourse)){
-                courseRemove = onlineCourse;
+                onlineCourseList.remove(onlineCourse);
+                return true;
             }
-        }
-        if (courseRemove != null){
-            onlineCourseList.remove(courseRemove);
-            return true;
         }
         return false;
     }
@@ -54,22 +49,17 @@ public class CourseManagement {
                                         String newPlform, String newIns, String newNote){
         for (OnlineCourse onlineCourse : onlineCourseList){
             if(onlineCourse.getCourseID().equals(IDcourse)){
-                System.out.println("\n*** Search results ***");
-                System.out.println(onlineCourse);
-
-                System.out.println("*** Updating ***");
-                System.out.println("Note: Enter empty if you don't want to change it.");
                 
                 if(newName != null)
-                    onlineCourse.courseName = newName;
+                    onlineCourse.setCourseName(newName);
                 if(newCr != null && newCr > 0)
-                    onlineCourse.credits = newCr;
+                    onlineCourse.setCredits(newCr);
                 if(newPlform != null )
-                    onlineCourse.platform = newPlform;
+                    onlineCourse.setPlatform(newPlform);
                 if(newIns != null)
-                    onlineCourse.instructors = newIns;
+                    onlineCourse.setInstructors(newIns);
                 if(newNote != null)
-                    onlineCourse.note = newNote;
+                    onlineCourse.setNote(newNote);
                 
                 System.out.println("Updated successfully.");
                 return true;
@@ -85,13 +75,12 @@ public class CourseManagement {
         }
         System.out.println("Course ID - Course Name - Credits - Platforms - Instructors - Note");
         for (OnlineCourse onlineCourse: onlineCourseList){
-            System.out.println(onlineCourse);
+            System.out.println(onlineCourse.toString());
         }
     }
     
     public boolean checkOfflineCourse(String ID){
         if (isDuplicateID(ID)){
-            System.out.println("Data input is invalid, ID must be unique");
             return false;
         }
         return true;
@@ -124,9 +113,9 @@ public class CourseManagement {
         for (OfflineCourse offlineCourse : offlineCourseList){
             if(offlineCourse.getCourseID().equals(IDcourse)){
                 if(newName != null)
-                    offlineCourse.courseName = newName;
+                    offlineCourse.setCourseName(newName);
                 if(newCr != null && newCr > 0)
-                    offlineCourse.credits = newCr;
+                    offlineCourse.setCredits(newCr);
                 if(newBegin != null )
                     offlineCourse.begin = LocalDate.parse(newBegin);
                 if(newEnd != null)
@@ -135,7 +124,7 @@ public class CourseManagement {
                     throw new IllegalArgumentException("Data input is invalid, end must be after begin");
                 }
                 if(newCampus != null)
-                    offlineCourse.campus = newCampus;
+                    offlineCourse.setCampus(newCampus);
                 
                 System.out.println("Updated successfully.");
                 return true;
@@ -151,7 +140,7 @@ public class CourseManagement {
         }
         System.out.println("Course ID - Course Name - Credits - Begin - End - Campus");
         for (OfflineCourse offlineCourse: offlineCourseList){
-            System.out.println(offlineCourse);
+            System.out.println(offlineCourse.toString());
         }
     }
     
@@ -183,6 +172,6 @@ public class CourseManagement {
     
     public void searchCourse(String IDcourse){
         Course course = findCourse(IDcourse);
-        if(course != null) System.out.println(course);
+        if(course != null) System.out.println(course.toString());
     }
 }

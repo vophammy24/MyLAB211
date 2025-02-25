@@ -13,7 +13,31 @@ public class OfflineCourse extends Course{
         this.end = null;
         this.campus = "";
     }
-    
+
+    public LocalDate getBegin() {
+        return begin;
+    }
+
+    public void setBegin(LocalDate begin) {
+        this.begin = begin;
+    }
+
+    public LocalDate getEnd() {
+        return end;
+    }
+
+    public void setEnd(LocalDate end) {
+        this.end = end;
+    }
+
+    public String getCampus() {
+        return campus;
+    }
+
+    public void setCampus(String campus) {
+        this.campus = campus;
+    }
+
     public void inputAll(String cID, String cName, int cr, String be, String en, String cam){
         super.inputAll(cID, cName, cr);
         

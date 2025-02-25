@@ -11,6 +11,31 @@ public class OnlineCourse extends Course{
         this.instructors = "";
         this.note = "";
     }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getInstructors() {
+        return instructors;
+    }
+
+    public void setInstructors(String instructors) {
+        this.instructors = instructors;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+    
     
     public void inputAll(String cID, String cName, int cr, String plform, String ins, String n){
         super.inputAll(cID, cName, cr);
