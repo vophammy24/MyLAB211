@@ -36,13 +36,13 @@ public class CourseManagement {
         return false;
     }
     public boolean deleteOnlineCourse(String IDcourse){
-        for (OnlineCourse onlineCourse: onlineCourseList){
-            if (onlineCourse.getCourseID().equals(IDcourse)){
-                onlineCourseList.remove(onlineCourse);
-                return true;
-            }
+    for (OnlineCourse onlineCourse: onlineCourseList){
+        if(onlineCourse.getCourseID().equals(IDcourse)){
+            onlineCourseList.remove(onlineCourse);
+            return true;
         }
-        return false;
+    }
+    return false;     
     }
     
     public boolean updateOnlineCourse(String IDcourse, String newName, Integer newCr, 
@@ -61,7 +61,6 @@ public class CourseManagement {
                 if(newNote != null)
                     onlineCourse.setNote(newNote);
                 
-                System.out.println("Updated successfully.");
                 return true;
             }
         }
@@ -95,15 +94,11 @@ public class CourseManagement {
     }
     
     public boolean deleteOfflineCourse(String IDcourse){
-        OfflineCourse courseRemove = null;
         for (OfflineCourse offlineCourse: offlineCourseList){
             if (offlineCourse.getCourseID().equals(IDcourse)){
-                courseRemove = offlineCourse;
-            }
-        }
-        if (courseRemove != null){
-            offlineCourseList.remove(courseRemove);
+                offlineCourseList.remove(offlineCourse);
             return true;
+            }
         }
         return false;
     }
@@ -126,7 +121,6 @@ public class CourseManagement {
                 if(newCampus != null)
                     offlineCourse.setCampus(newCampus);
                 
-                System.out.println("Updated successfully.");
                 return true;
             }
         }
