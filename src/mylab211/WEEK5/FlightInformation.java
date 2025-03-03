@@ -1,11 +1,13 @@
 package mylab211.WEEK5;
 
+import java.time.LocalDateTime;
+
 public class FlightInformation {
     String flightNumber;
     String seatNumber;
-    int timePickUp;
+    LocalDateTime timePickUp;
 
-    public FlightInformation(String flightNumber, String seatNumber, int timePickUp) {
+    public FlightInformation(String flightNumber, String seatNumber, LocalDateTime timePickUp) {
         this.flightNumber = flightNumber;
         this.seatNumber = seatNumber;
         this.timePickUp = timePickUp;
@@ -15,6 +17,17 @@ public class FlightInformation {
     public FlightInformation() {
         this.flightNumber = "";
         this.seatNumber = "";
-        this.timePickUp = 0;
+        this.timePickUp = LocalDateTime.now();
     }
+
+    public LocalDateTime getTimePickUp() {
+        return timePickUp;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight: " + flightNumber + " | Seat: " + seatNumber + " | Pick-up Time:" + timePickUp;
+    }
+    
+    
 }

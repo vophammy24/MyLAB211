@@ -1,5 +1,6 @@
 package mylab211.WEEK5;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class BigNumber {
@@ -10,9 +11,17 @@ public class BigNumber {
         String S1 = scanner.nextLine();
         System.out.print("Enter second number: ");
         String S2 = scanner.nextLine();
-
+        
+        BigInteger num1 = new BigInteger(S1);
+        BigInteger num2 = new BigInteger(S2);
+        
+        BigInteger sum = num1.add(num2);
+        BigInteger mul = num1.multiply(num2);
+        
         System.out.println("Sum: " + addLargeNumbers(S1, S2));
+        System.out.println("Sum: " + sum);
         System.out.println("Product: " + multiplyLargeNumbers(S1, S2));
+        System.out.println("Porduct: " + mul);
 
         scanner.close();
     }
@@ -37,13 +46,11 @@ public class BigNumber {
     }
 
     public static String multiplyLargeNumbers(String S1, String S2) {
-        int len1 = S1.length();
-        int len2 = S2.length();
-        int[] array = new int[len1 + len2];
+        int[] array = new int[S1.length() + S2.length()];
 
-        for (int i = len1 - 1; i >= 0; i--) {
+        for (int i = S1.length() - 1; i >= 0; i--) {
             int carry = 0;
-            for (int j = len2 - 1; j >= 0; j--) {
+            for (int j = S2.length() - 1; j >= 0; j--) {
                 int digit1 = S1.charAt(i) - '0';
                 int digit2 = S2.charAt(j) - '0';
                 int mul = digit1 * digit2 + array[i + j + 1] + carry;
@@ -53,7 +60,7 @@ public class BigNumber {
             array[i] += carry;
         }
 
-        return multipleResult(array, array.length);
+        return multiplyResult(array, array.length);
     }
 
     private static String sumResult(int[] arr, int length) {
@@ -63,7 +70,7 @@ public class BigNumber {
         }
         return result;
     }
-    private static String multipleResult(int[] arr, int length) {
+    private static String multiplyResult(int[] arr, int length) {
         String result = "";
         for (int k = 0; k <= length - 1; k++) {
             result = result + arr[k];
