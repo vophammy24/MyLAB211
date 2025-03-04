@@ -2,18 +2,18 @@ package mylab211.WEEK6;
 
 public class Contact {
     int ID;
-    String fullName;
     String firstName;
     String lastName;
+    String fullName;
     String group;
     String address;
     String phone;
 
-    public Contact(int ID, String fullName, String firstName, String lastName, String group, String address, String phone) {
+    public Contact(int ID, String firstName, String lastName, String group, String address, String phone) {
         this.ID = ID;
-        this.fullName = fullName;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.fullName = firstName + " " + lastName;
         this.group = group;
         this.address = address;
         this.phone = phone;
@@ -27,12 +27,12 @@ public class Contact {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getGroup() {
@@ -51,6 +51,4 @@ public class Contact {
     public String toString() {
         return ID + "\t" + fullName + "\t" + group + "\t" + address + "\t" + phone;
     }
-    
-    
 }
