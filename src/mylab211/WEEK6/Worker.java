@@ -16,7 +16,7 @@ public class Worker {
         this.age = age;
         this.location = location;
         this.salaryHistory = new ArrayList<>();
-        this.salaryHistory.add(new Salary(salary, "None", ""));
+        this.salaryHistory.add(new Salary(salary, "Begin", ""));
     }
 
     public String getCode() {
