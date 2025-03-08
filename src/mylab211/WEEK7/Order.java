@@ -37,11 +37,10 @@ public class Order {
         System.out.println("Customer Name: " + customerName);
         System.out.println("Product\tQuantity\tPrice\tAmount");
         for(OrderItem item: orderItems){
-            System.out.printf(item.getProductName() +"\t"+ item.getQuantity()+"\t"+
+            System.out.print(item.getProductName() +"\t"+ item.getQuantity()+"\t"+
                                 item.getPrice() +"\t"+ item.getAmount());
             totalAmount += item.getAmount();
         }
         System.out.println("Total: " + totalAmount + "$");
     }
-    
 }

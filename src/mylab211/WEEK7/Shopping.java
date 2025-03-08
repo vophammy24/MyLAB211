@@ -23,6 +23,9 @@ public class Shopping {
         }
         return null;
     }
+    public List<Fruit> getFruits(){
+        return fruits;
+    }
     
     public void createOrder(String customerName, ArrayList<OrderItem> item){
         Order order = new Order(customerName);
