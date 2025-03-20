@@ -52,7 +52,7 @@ public class FruitShopManagementSystem {
             }
             Fruit selectedFruit = fruits.get(itemIndex);
             System.out.println("You selected: " + selectedFruit.getFruitName());
-            System.out.println("Please input quantity: ");
+            System.out.print("Please input quantity: ");
             int quantity = sc.nextInt();
             sc.nextLine();
             if(quantity > selectedFruit.getQuantity()){
@@ -79,12 +79,12 @@ public class FruitShopManagementSystem {
                     + item.getAmount() + "$");
         }
         System.out.println("Total: " + total + "$");
-        System.out.println("Input your name: ");
+        System.out.print("Input your name: ");
         String cusName = sc.nextLine();
         shopping.createOrder(cusName, orderItems);
-    }
+    } 
+    
     public Shopping getShopping(){
         return shopping;
     }
-    
 }

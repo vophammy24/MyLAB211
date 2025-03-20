@@ -41,6 +41,6 @@ public class Order {
                                 item.getPrice() +"\t"+ item.getAmount());
             totalAmount += item.getAmount();
         }
-        System.out.println("Total: " + totalAmount + "$");
+        System.out.println("\nTotal: " + totalAmount + "$");
     }
 }

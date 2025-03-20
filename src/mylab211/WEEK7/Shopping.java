@@ -4,25 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shopping {
-    private List<Fruit> fruits;
-    private List<Order> orders;
-    
-    public Shopping(){
-        fruits = new ArrayList<>();
-        orders = new ArrayList<>();
-    }
+    private List<Fruit> fruits = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
     
     public void createFruit(Fruit fruit){
         fruits.add(fruit);
     }
     
-    public Fruit getFruitByName(String fruitName){
-        for(Fruit fruit: fruits){
-            if(fruit.getFruitName().equalsIgnoreCase(fruitName))
-                return fruit;
-        }
-        return null;
-    }
+//    public Fruit getFruitByName(String fruitName){
+//        for(Fruit fruit: fruits){
+//            if(fruit.getFruitName().equalsIgnoreCase(fruitName))
+//                return fruit;
+//        }
+//        return null;
+//    }
+    
     public List<Fruit> getFruits(){
         return fruits;
     }
